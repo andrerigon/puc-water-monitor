@@ -15,8 +15,11 @@ Rails.application.routes.draw do
   root 'map#show'
 
   namespace :admin do
-    resources :users
+    resources :users, only: [:index, :new, :create, :edit, :update, :destroy]
   end
+
+  # Rota para editar a conta do usuário atual
+  resource :account, only: [:edit, :update]
 
   mount Sidekiq::Web => '/sidekiq'
   
