@@ -1,0 +1,52 @@
+<head>
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+  <script src="/assets/actioncable.js"></script>
+
+  <style>
+  .marker {
+    background-color: "#8dc5d3"; // Azul claro
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+  }
+  </style>
+</head>
+
+<div id='map' style='width: 1080px; height: 720px;'></div>
+<script>
+  mapboxgl.accessToken = '<%= Rails.application.credentials.mapbox[:access_token] %>';
+  var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v11',
+    center: [-43.198487, -22.976730], 
+    zoom: 13
+  });
+
+  map.on('load', function() {
+    var locations = <%= raw @locations %>;
+
+    locations.forEach(function(location) {
+            new mapboxgl.Marker() 
+        .setLngLat([location.longitude, location.latitude])
+        .addTo(map);
+    });
+
+    const consumer = ActionCable.createConsumer();
+      consumer.subscriptions.create("LocationsChannel", {
+        received(data) {
+          console.log({data})
+          addLocationToMap(JSON.parse(data));
+        }
+      });
+
+    function addLocationToMap(location) {
+      console.log("Adicionando ao mapa:", location);
+      new mapboxgl.Marker()
+        .setLngLat([location.longitude, location.latitude])
+        .addTo(map);
+    }
+
+ 
+  });
+</script>
