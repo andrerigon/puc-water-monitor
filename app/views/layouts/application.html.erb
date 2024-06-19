@@ -24,7 +24,7 @@
           <%= link_to 'Map', map_path, class: 'nav-link' %>
         </li>
         <li class="nav-item">
-          <%= link_to 'My Account', edit_account_path, class: 'nav-link' %>
+          <%= link_to 'Edit Account', edit_account_path, class: 'nav-link' %>
         </li>
         <% if current_user.admin? %>
           <li class="nav-item">
@@ -38,12 +38,20 @@
         <li class="nav-item">
           <%= link_to 'Login', new_user_session_path, class: 'nav-link' %>
         </li>
+        <li class="nav-item">
+          <%= link_to 'Sign Up', new_user_registration_path, class: 'nav-link' %>
+        </li>
       <% end %>
     </ul>
   </div>
 </nav>
 
 <div class="container mt-5">
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key == "notice" ? "success" : "danger" %>">
+      <%= value %>
+    </div>
+  <% end %>
   <%= yield %>
 </div>
 </body>

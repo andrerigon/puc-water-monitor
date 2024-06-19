@@ -47,6 +47,11 @@ gem 'sidekiq'
 gem 'devise'
 gem 'bootstrap', '~> 5.1.3'
 gem 'jquery-rails'
+gem 'telegram-bot-ruby'
+gem 'pry'
+gem 'pry-rails' # Esta gema adiciona alguns comandos específicos para Rails
+gem 'pry-byebug'
+gem 'pg'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"

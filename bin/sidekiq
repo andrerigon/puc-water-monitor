@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+bundle exec sidekiq -c 5 -v -q default

@@ -6,6 +6,7 @@ class User < ApplicationRecord
   # Validations
   validates :name, presence: true
   validates :phone_number, presence: true
+  validates :telegram_chat_id, presence: true, if: -> { receive_updates? }
 
   # Check if the user is an admin
   def admin?

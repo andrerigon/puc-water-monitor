@@ -42,7 +42,7 @@ module Admin
     private
 
     def user_params
-      params.require(:user).permit(:name, :email, :phone_number, :password, :password_confirmation, :admin, :receive_updates)
+      params.require(:user).permit(:name, :email, :phone_number, :password, :password_confirmation, :admin, :receive_updates, :telegram_chat_id)
     end
 
     def admin_only

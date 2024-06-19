@@ -10,6 +10,7 @@ class AccountsController < ApplicationController
     if @user.update(user_params)
       redirect_to edit_account_path, notice: 'Account updated successfully.'
     else
+      flash.now[:alert] = 'There were problems updating your account.'
       render :edit
     end
   end
@@ -17,6 +18,6 @@ class AccountsController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :phone_number)
+    params.require(:user).permit(:name, :phone_number, :telegram_chat_id)
   end
 end
