@@ -2,43 +2,46 @@
   <%= render 'shared/error_messages', object: f.object %>
 
   <div class="form-group">
-    <%= f.label :name %>
+    <%= f.label :name, t('users.form.name') %>
     <%= f.text_field :name, class: 'form-control' %>
   </div>
 
   <div class="form-group">
-    <%= f.label :email %>
+    <%= f.label :email, t('users.form.email') %>
     <%= f.email_field :email, class: 'form-control' %>
   </div>
 
   <div class="form-group">
-    <%= f.label :phone_number %>
+    <%= f.label :phone_number, t('users.form.phone_number') %>
     <%= f.telephone_field :phone_number, class: 'form-control' %>
   </div>
 
   <div class="form-group">
-    <%= f.label :telegram_chat_id %>
+    <%= f.label :telegram_chat_id, t('users.form.telegram_chat_id') %>
     <%= f.text_field :telegram_chat_id, class: 'form-control' %>
   </div>
 
   <div class="form-group">
-    <%= f.label :password %>
+    <%= f.label :password, t('users.form.password') %>
     <%= f.password_field :password, class: 'form-control' %>
   </div>
 
   <div class="form-group">
-    <%= f.label :password_confirmation %>
+    <%= f.label :password_confirmation, t('users.form.password_confirmation') %>
     <%= f.password_field :password_confirmation, class: 'form-control' %>
   </div>
 
   <div class="form-group">
-    <%= f.label :admin %>
+    <%= f.label :admin, t('users.form.admin') %>
     <%= f.check_box :admin %>
   </div>
 
   <div class="form-group">
-    <%= f.label :receive_updates %>
+    <%= f.label :receive_updates, t('users.form.receive_updates') %>
     <%= f.check_box :receive_updates %>
   </div>
 
+  <div class="form-group">
+    <%= f.submit 'Salvar', class: 'btn btn-primary' %>
+  </div>
 <% end %>

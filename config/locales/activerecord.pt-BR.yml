@@ -1,0 +1,17 @@
+# config/locales/activerecord.pt-BR.yml
+pt-BR:
+  activerecord:
+    errors:
+      messages:
+        record_invalid: "A validação falhou: %{errors}"
+        restrict_dependent_destroy:
+          has_one: "Não pode ser excluído porque há um registro dependente %{record}"
+          has_many: "Não pode ser excluído porque há registros dependentes %{record}"
+    attributes:
+      user:
+        email: "Email"
+        password: "Senha"
+        password_confirmation: "Confirmação de Senha"
+        name: "Nome"
+        phone_number: "Número de Telefone"
+        telegram_chat_id: "ID do Chat do Telegram"

@@ -1,0 +1,61 @@
+# config/locales/pt-BR.yml
+pt-BR:
+  hello: "Olá"
+  users:
+    new:
+      title: "Novo Usuário"
+      back: "Voltar"
+    index:
+      title: "Todos os Usuários"
+      new_user: "Novo Usuário"
+      name: "Nome"
+      email: "Email"
+      phone_number: "Número de Telefone"
+      admin: "Administrador"
+      receive_updates: "Receber Atualizações"
+      edit: "Editar"
+      delete: "Excluir"
+      are_you_sure: "Você tem certeza?"
+    edit:
+      title: "Editar Usuário"
+      back: "Voltar"
+    form:
+      name: "Nome"
+      email: "Email"
+      phone_number: "Número de Telefone"
+      telegram_chat_id: "ID do Chat do Telegram"
+      password: "Senha"
+      password_confirmation: "Confirmação de Senha"
+      admin: "Administrador"
+      receive_updates: "Receber Atualizações"
+  devise:
+    registrations:
+      signed_up: "Bem-vindo! Você se registrou com sucesso."
+      updated: "Sua conta foi atualizada com sucesso."
+      destroyed: "Sua conta foi excluída com sucesso."
+    sessions:
+      signed_in: "Login efetuado com sucesso."
+      signed_out: "Logout efetuado com sucesso."
+  errors:
+    messages:
+      blank: "não pode ficar em branco"
+      invalid: "é inválido"
+  account:
+    edit:
+      title: "Editar Conta"
+      name: "Nome"
+      phone_number: "Número de Telefone"
+      telegram_chat_id: "ID do Chat do Telegram"
+      update: "Atualizar"
+      back: "Voltar"
+  layouts:
+    application:
+      title: "Monitor de Qualidade da Água"
+      home: "Início"
+      map: "Mapa"
+      edit_account: "Editar Conta"
+      manage_users: "Gerenciar Usuários"
+      logout: "Sair"
+      login: "Entrar"
+      sign_up: "Registrar"
+      are_you_sure: "Você tem certeza?"

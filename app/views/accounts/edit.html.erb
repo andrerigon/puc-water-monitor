@@ -1,24 +1,24 @@
-<h1>Edit Account</h1>
+<h1><%= t('account.edit.title') %></h1>
 
 <%= form_for @user, url: account_path, method: :put, html: { class: 'form-horizontal' } do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 
   <div class="form-group">
-    <%= f.label :name, class: 'col-sm-2 control-label' %>
+    <%= f.label :name, t('account.edit.name'), class: 'col-sm-2 control-label' %>
     <div class="col-sm-10">
       <%= f.text_field :name, class: 'form-control' %>
     </div>
   </div>
 
   <div class="form-group">
-    <%= f.label :phone_number, class: 'col-sm-2 control-label' %>
+    <%= f.label :phone_number, t('account.edit.phone_number'), class: 'col-sm-2 control-label' %>
     <div class="col-sm-10">
       <%= f.text_field :phone_number, class: 'form-control' %>
     </div>
   </div>
 
   <div class="form-group">
-    <%= f.label :telegram_chat_id, class: 'col-sm-2 control-label' %>
+    <%= f.label :telegram_chat_id, t('account.edit.telegram_chat_id'), class: 'col-sm-2 control-label' %>
     <div class="col-sm-10">
       <%= f.text_field :telegram_chat_id, class: 'form-control' %>
     </div>
@@ -26,9 +26,9 @@
 
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-      <%= f.submit 'Update', class: 'btn btn-primary' %>
+      <%= f.submit t('account.edit.update'), class: 'btn btn-primary' %>
     </div>
   </div>
 <% end %>
 
-<%= link_to 'Back', root_path, class: 'btn btn-secondary' %>
+<%= link_to t('account.edit.back'), root_path, class: 'btn btn-secondary' %>
