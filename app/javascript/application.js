@@ -1,3 +1,4 @@
-// Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
-import { createConsumer } from "actioncable"
-
+//= require rails-ujs
+//= require activestorage
+//= require_tree .
+//= require action_cable
