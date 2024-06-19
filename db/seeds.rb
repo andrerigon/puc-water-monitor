@@ -12,7 +12,7 @@ admin.update!(
   admin: true,
   name: 'Admin User',
   phone_number: '1234567890',
-  receive_updates: true
+  receive_updates: false
 )
 
 puts "Admin user created with email: #{admin_email} and password: #{admin_password}"
