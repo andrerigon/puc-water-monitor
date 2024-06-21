@@ -31,17 +31,18 @@
     <%= f.password_field :password_confirmation, class: 'form-control' %>
   </div>
 
-  <div class="form-group">
-    <%= f.label :admin, t('users.form.admin') %>
-    <%= f.check_box :admin %>
+  <div class="form-group form-check">
+    <%= f.check_box :admin, class: 'form-check-input' %>
+    <%= f.label :admin, t('users.form.admin'), class: 'form-check-label' %>
   </div>
 
-  <div class="form-group">
-    <%= f.label :receive_updates, t('users.form.receive_updates') %>
-    <%= f.check_box :receive_updates %>
+  <div class="form-group form-check">
+    <%= f.check_box :receive_updates, class: 'form-check-input' %>
+    <%= f.label :receive_updates, t('users.form.receive_updates'), class: 'form-check-label' %>
   </div>
 
   <div class="form-group">
     <%= f.submit 'Salvar', class: 'btn btn-primary' %>
+    <%= link_to t('users.edit.back'), admin_users_path, class: 'btn btn-secondary ml-2' %>
   </div>
 <% end %>
