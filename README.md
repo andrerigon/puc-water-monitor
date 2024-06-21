@@ -6,11 +6,7 @@
 1. [Breve Descrição](#breve-descrição)
 2. [Visão de Projeto](#visão-de-projeto)
 3. [Documentação Técnica do Projeto](#documentação-técnica-do-projeto)
-4. [Configuração](#configuração)
-5. [Uso](#uso)
-6. [Arquitetura](#arquitetura)
-7. [Contribuição](#contribuição)
-8. [Licença](#licença)
+4. [Instruções para Iniciar o Projeto com Docker](#instruções-para-iniciar-o-projeto-com-docker)
 
 ## Breve Descrição
 
@@ -104,11 +100,11 @@ A arquitetura do sistema é baseada no padrão MVC (Model-View-Controller), util
 
 ```mermaid
 graph TD
-    A[Client (Browser)] --> B[Controller]
+    A[Client] --> B[Controller]
     B --> C[Model]
-    C --> D[Database (PostgreSQL)]
-    C --> E[Redis (Sidekiq)]
-    E --> F[External APIs (Telegram, Google Maps)]
+    C --> D[Database]
+    C --> E[Redis]
+    E --> F[External APIs]
 ```
 
 ### Modelo de Dados
@@ -310,86 +306,42 @@ Se os marcadores no mapa não aparecerem:
 
 
 
-## Funcionalidades
+## Instruções para Iniciar o Projeto com Docker
 
-- Recepção de eventos de localização de estações de monitoramento.
-- Criação e gerenciamento de usuários.
-- Configuração de permissões para recebimento de notificações via Telegram.
-- Atualização de dados de usuários (nome, telefone, e ID do chat do Telegram).
+Certifique-se de ter o Docker e o Docker Compose instalados em seu sistema.
 
-## Requisitos
+### Configurar Credenciais do Rails
 
-- Ruby on Rails
-- PostgreSQL
-- Redis
-- Sidekiq
-- Telegram Bot API
-- Google Maps API
+1. Gere as credenciais do Rails (se ainda não tiver):
 
-## Configuração
-
-1. **Clone o repositório:**
    ```bash
-   git clone https://github.com/seu_usuario/seu_repositorio.git
-   cd seu_repositorio
+   EDITOR="code --wait" bin/rails credentials:edit
    ```
 
-2. **Instale as dependências:**
-   ```bash
-   bundle install
-   ```
+   Adicione o token para o telegram (não compartilhado aqui por motivos de segurança. Posso fornecer o que estou usando)
 
-3. **Configure o banco de dados:**
-   ```bash
-   rails db:create
-   rails db:migrate
-   ```
+2. Inicie os containers:
 
-4. **Configure as credenciais:**
-   Edite `config/credentials.yml.enc` com suas credenciais do Telegram e Google Maps.
-   ```yaml
-   telegram:
-     bot_token: 'YOUR_TELEGRAM_BOT_TOKEN'
-   google_maps:
-     api_key: 'YOUR_GOOGLE_MAPS_API_KEY'
-   ```
+```bash
+docker-compose up --build
+```
 
-5. **Inicie o servidor:**
-   ```bash
-   rails server
-   ```
+3. Acesse a página:
 
-6. **Inicie o Sidekiq:**
-   ```bash
-   bundle exec sidekiq
-   ```
+```bash
+http://localhost:3566
+```
 
-## Uso
+O setup faz seed de um usuário de teste que não tem notificações habilitadas:
 
-- **Administração:**
-    - Acesse `/admin/users` para gerenciar usuários.
-    - Configure permissões de notificações para cada usuário.
-- **Usuário Comum:**
-    - Acesse `/account/edit` para atualizar nome, telefone e ID do chat do Telegram.
-- **Monitoramento:**
-    - Receba eventos de localização e visualize no mapa.
+```bash
+user: admin@example.com
+passwd: password
+```
 
-## Arquitetura
+Há um processo de gera eventos nas proximidades do mapa. 
+Caso tenha o bot do telegram configurado, modifique o usuário de teste para receber notificações:
 
-- **Backend:** Ruby on Rails
-- **Banco de Dados:** PostgreSQL
-- **Mensageria:** Redis + Sidekiq
-- **Notificações:** Telegram Bot API
-- **Mapas:** Google Maps API
-
-## Contribuição
-
-1. Fork o repositório.
-2. Crie uma branch para sua feature: `git checkout -b minha-feature`.
-3. Commit suas alterações: `git commit -m 'Minha nova feature'`.
-4. Push para a branch: `git push origin minha-feature`.
-5. Abra um Pull Request.
-
-## Licença
-
-Este projeto está licenciado sob a Licença MIT. Veja o arquivo LICENSE para mais detalhes.
+1. Marque a opção de receber notificações
+2. Altere telegram chat it para o seu usuário do telegram (Utilize o @RawDataBot para obter o seu id)
+   
