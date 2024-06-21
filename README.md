@@ -18,10 +18,10 @@ Este projeto é um sistema de monitoramento da qualidade da água que recebe eve
 - Atualização de informações pessoais pelos usuários (nome, telefone e ID do chat do Telegram).
 - Envio de notificações para o telegram do usuário quando a qualidade da água é considerada ruim.
 
-Destinado principalmente a gestores ambientais e pesquisadores em qualidade da água, este sistema serve como uma ferramenta utilitária completa para monitoramento ambiental. É importante notar que o sistema requer configuração correta de APIs externas (Telegram e Google Maps) para pleno funcionamento.
+Destinado principalmente a gestores ambientais e pesquisadores em qualidade da água, este sistema serve como uma ferramenta utilitária auxiliar para monitoramento ambiental. É importante notar que o sistema requer configuração correta de APIs externas (Telegram e Mapbox) para pleno funcionamento.
 
 Este programa foi inicialmente desenvolvido para disciplina de Computaçõe Móvel, porém apenas com a visualização do mapa. 
-A partir disso, foi feito uma extensão para gerenciamento de usuários e o monitoramento de qualidade da água e notificação via Telegram.
+A partir disso, foi feito uma extensão para gerenciamento de usuários, monitoramento de qualidade da água e notificação via Telegram.
 
 Ressalvas: Necessidade de configuração correta das APIs externas (Telegram e Google Maps) para pleno funcionamento.
 
@@ -39,7 +39,7 @@ Recentemente, João alterou seu número de telefone e seu ID do chat do Telegram
 
 #### Cenário Positivo 3: Visualização de Pontos com Má Qualidade da Água
 
-João quer visualizar todos os pontos com má qualidade de água no mapa da aplicação. Ele faz login no sistema e acessa a página do mapa. Nesta página, ele vê marcadores indicando as localizações onde a qualidade da água foi considerada ruim. Cada marcador no mapa fornece detalhes adicionais sobre o problema quando clicado. Isso permite que João tenha uma visão clara e rápida dos locais críticos, ajudando-o a tomar decisões informadas sobre as áreas que precisam de mais atenção.
+João quer visualizar todos os pontos com má qualidade de água no mapa da aplicação. Ele faz login no sistema e acessa a página do mapa. Nesta página, ele vê marcadores indicando as localizações onde a qualidade da água foi considerada ruim. Isso permite que João tenha uma visão clara e rápida dos locais críticos, ajudando-o a tomar decisões informadas sobre as áreas que precisam de mais atenção.
 
 ### Cenários Negativos
 
@@ -122,7 +122,7 @@ graph TD
 1. Telegram Bot API:
    * Utilizada para enviar notificações aos usuários.
    * Requer configuração do bot token.
-2. Google Maps API:
+2. Mapbox API:
    * Utilizada para exibir a localização dos eventos de monitoramento no mapa.
    * Requer configuração da API key.
 
@@ -139,7 +139,7 @@ graph TD
 
 1. O usuário faz login e acessa a página de edição de conta.
 2. O usuário atualiza suas informações pessoais.
-3. O sistema salva as alterações e envia uma confirmação via Telegram.
+3. O sistema salva as alterações.
 
 #### Fluxo de Recebimento de Eventos de Monitoramento
 
@@ -161,11 +161,6 @@ graph TD
 * Utiliza Redis e Sidekiq para gerenciamento de filas e processamento em background.
 * Integração com APIs externas via HTTP.
 
-#### Estratégia de Comentários
-
-* Comentários em linha são usados para explicar trechos de código complexos.
-* Documentação de métodos públicos segue o padrão YARD para Ruby.
-
 #### Diretivas de Compilação
 
 * O projeto não requer diretivas de compilação específicas.
@@ -185,13 +180,13 @@ Para criar um usuário admin, faça:
 
 **Passo 1:** Faça login na aplicação utilizando suas credenciais de administrador.
 
-**Passo 2:** No menu de navegação, clique em "Administração de Usuários".
+**Passo 2:** No menu de navegação, clique em "Gerenciar Usuários".
 
-**Passo 3:** Clique no botão "Adicionar Novo Usuário".
+**Passo 3:** Clique no botão "Novo Usuário".
 
 **Passo 4:** Preencha o formulário com as informações do novo usuário (nome, email, telefone, ID do chat do Telegram, senha).
 
-**Passo 5:** Marque a opção "Admin" para designar o usuário como administrador.
+**Passo 5:** Marque a opção "Administrador" para designar o usuário como administrador.
 
 **Passo 6:** Configure as permissões de recebimento de notificações via Telegram, se necessário.
 
@@ -219,13 +214,13 @@ Para criar um usuário regular, faça:
 
 **Passo 1:** Faça login na aplicação utilizando suas credenciais de administrador.
 
-**Passo 2:** No menu de navegação, clique em "Administração de Usuários".
+**Passo 2:** No menu de navegação, clique em "Gerenciar Usuários".
 
-**Passo 3:** Clique no botão "Adicionar Novo Usuário".
+**Passo 3:** Clique no botão "Novo Usuário".
 
 **Passo 4:** Preencha o formulário com as informações do novo usuário (nome, email, telefone, ID do chat do Telegram, senha).
 
-**Passo 5:** Não marque a opção "Admin" para que o usuário seja um usuário regular.
+**Passo 5:** Não marque a opção "Administrador" para que o usuário seja um usuário regular.
 
 **Passo 6:** Configure as permissões de recebimento de notificações via Telegram, se necessário.
 
@@ -261,7 +256,7 @@ Para editar informações de usuário, faça:
 
 **Passo 1:** Faça login na aplicação utilizando suas credenciais de administrador.
 
-**Passo 2:** No menu de navegação, clique em "Administração de Usuários".
+**Passo 2:** No menu de navegação, clique em "Gerenciar Usuários".
 
 **Passo 3:** Selecione o usuário que deseja editar.
 
