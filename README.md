@@ -7,6 +7,7 @@
 2. [Visão de Projeto](#visão-de-projeto)
 3. [Documentação Técnica do Projeto](#documentação-técnica-do-projeto)
 4. [Instruções para Iniciar o Projeto com Docker](#instruções-para-iniciar-o-projeto-com-docker)
+5. [Exemplos de uso](#exemplos-de-uso)
 
 ## Breve Descrição
 
@@ -303,9 +304,6 @@ Se os marcadores no mapa não aparecerem:
 **Então faça:** Verifique se há eventos registrados no sistema. Se necessário, adicione eventos de teste para verificar a funcionalidade.
 
 
-
-
-
 ## Instruções para Iniciar o Projeto com Docker
 
 Certifique-se de ter o Docker e o Docker Compose instalados em seu sistema.
@@ -344,4 +342,34 @@ Caso tenha o bot do telegram configurado, modifique o usuário de teste para rec
 
 1. Marque a opção de receber notificações
 2. Altere telegram chat it para o seu usuário do telegram (Utilize o @RawDataBot para obter o seu id)
+
+### Exemplos de uso
+
+#### Login
+
+![Tela de login](images/login.png)
+
+#### Login com erro
+
+![Tela de login com erro](images/login-error.png)
+
+#### Mapa
+
+![Mapa](images/map.png)
+
+
+#### Gerenciar usuários
+
+![Gerenciar usuários](images/manage-users.png)
+
+#### Editar usuário
+
+![Editar usuários](images/edit.png)
+
+#### Notificações no telegram
+
+![Telegram](images/telegram.png)
+
+
+
    
